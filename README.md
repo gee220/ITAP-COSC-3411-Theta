@@ -2,22 +2,22 @@
 ## Project Testing & Debugging
 
 ### 1. Code Debugging
-The script was verified using **ShellCheck** to ensure syntax safety.
-- **Result:** Fully functional with 0 syntax errors. The code structure is clean and stable.
-
+The script syntax was fully checked and tested to ensure it is free of errors.
+- **Result:** 0 syntax errors. The code structure is clean and ready for execution.
+  
 ### 2. System Testing & Execution
 The execution testing was successfully verified inside the Linux (Kali) environment:
 - The script handles user input and port validation seamlessly.
-- The periodic scheduling via `crontab` was successfully installed and active in the system.
+- Immediate scheduling was verified successfully using the `at` command.
+- Long-term periodic scheduling via `crontab` was successfully installed and active in the system.
 
 <img width="1174" height="836" alt="Screenshot 2026-05-16 at 6 48 26 pm" src="https://github.com/user-attachments/assets/ea3139a8-935e-48b4-90f3-a80428c34aac" />
 
-<img width="959" height="352" alt="Screenshot 2026-05-16 at 6 41 31 pm" src="https://github.com/user-attachments/assets/0a2f5d23-6537-4db4-b6ed-2146a0a456ea" />
+
 
 <img width="968" height="489" alt="Screenshot 2026-05-16 at 6 50 06 pm" src="https://github.com/user-attachments/assets/8484dea3-269c-4e3b-bfed-7018d5aef200" />
 
 
-<img width="1292" height="773" alt="Screenshot 2026-05-16 at 5 38 39 pm" src="https://github.com/user-attachments/assets/b1a03454-4d8d-49ce-8342-c1d7247de76f" />
 
 <img width="681" height="445" alt="f71ae87a-f676-41bf-9fe8-ee14d0562f68" src="https://github.com/user-attachments/assets/1e8b52fb-b6ef-4aa7-9b1b-b211a24393ac" />
 
