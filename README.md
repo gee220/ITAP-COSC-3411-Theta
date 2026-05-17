@@ -1,150 +1,44 @@
-##Netcat-Scheduled-Listener
+# **Netcat Scheduled Listener**
 
-Overview
-
-This project demonstrates how to automate a Netcat listener using Bash scripting and Linux scheduling tools (cron and at).
+## **Overview**
+This project demonstrates how to automate a Netcat listener using Bash scripting and Linux scheduling tools (`cron` and `at`).
 
 Instead of manually starting a listener every time, the system allows the user to:
+* **Enter a port number**
+* **Set a delay time**
+* **Automatically schedule and run the listener**
 
-Enter a port number
-Set a delay time
-Automatically schedule and run the listener
 This project combines Linux scripting, task automation, and networking concepts into one practical application.
 
+---
 
+## **Features**
+* User input for port number and delay
+* Port validation (1–65535)
+* Automated Netcat listener
+* Scheduling using:
+  * `at` (delayed execution)
+  * `cron` (recurring execution)
+* Logging support
 
-Features
+---
 
-User input for port number and delay
-Port validation (1–65535)
-Automated Netcat listener
-Scheduling using:
-at (delayed execution)
-cron (recurring execution)
-Logging support
-
-
-Requirements
-
+## **Requirements**
 Make sure you have the following installed:
+* Linux system (recommended: **Kali Linux**)
+* Bash shell
+* Netcat
+* `cron` service
+* `at` command
 
-Linux system (recommended: Kali Linux)
-Bash shell
-Netcat
-cron service
-at command
+---
 
+## **Installation**
 
-Installation
-
-Clone the repository:
-git clone https://github.com/gee220/Netcat-Scheduled-Listener.git cd Netcat-Scheduled-Listener
-
-Make scripts executable:
-chmod +x project.sh chmod +x listener.sh
-
-Install required tools (if not installed):
-sudo apt update sudo apt install netcat at cron
-
-Start required services:
-sudo service cron start sudo service atd start
-
-
-
-Configuration
-
-Update Script Paths
-Make sure the path inside project.sh matches your system:
-
-echo "/home/kali/listener.sh $port" | at now + $delay minutes
-
-Replace /home/kali/ with your actual directory if needed.
-
-
-
-(Optional) Configure Cron Job
-To run the listener automatically at a specific time:
-
-crontab -e
-
-Example:
-
-0 10 * * 0 /home/kali/project.sh 4444 >> /tmp/nc_sunday_listener.log 2>&1
-
-This means:
-
-Runs every Sunday
-At 10:00 AM
-On port 4444
-Saves output to a log file
-
-
-How to Run
-
-Run the main script:
-
-./project.sh
-
-You will be prompted to enter:
-
-Port number
-Delay (in minutes)
-
-
-Usage Example
-
-Example Input:
-
-Enter port number: 4444 Enter delay in minutes: 1
-
-What Happens:
-
-Script validates the port
-Schedules the listener
-After 1 minute, Netcat starts automatically
-Listener Output:
-
-Starting Netcat listener on port 4444... listening on [any] 4444 ...
-
-Project Testing & Debugging
-
-Code Debugging The script syntax was fully checked and tested to ensure it is free of errors. • Result: 0 syntax errors. The code structure is clean and ready for execution.
-System Testing & Execution The execution testing was successfully verified inside the Linux (Kali) environment: • The script handles user input and port validation seamlessly. • Immediate scheduling was verified successfully using the at command. • Long-term periodic scheduling via crontab was successfully installed and active in the system.
-Project Structure
-
-project.sh # Main script (user input + scheduling) listener.sh # Netcat listener script 
-README.md # Project documentation
-
-
-How It Works
-
-User runs project.sh
-Script asks for:
-Port
-Delay
-Input is validated
-at schedules execution
-listener.sh runs Netcat:
-nc -lvnp
-
-
-
-Results
-
-Listener successfully starts at scheduled time
-Input validation prevents errors
-Scheduling works using both at and cron
-Logs are generated correctly
-
-
-Conclusion
-
-This project demonstrates how Bash scripting can automate networking tasks using Netcat. It highlights the integration of:
-
-Linux scripting
-Task scheduling
-Network communication tools
-It provides a strong foundation for understanding automation in cybersecurity and system administration.
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/gee220/Netcat-Scheduled-Listener.git](https://github.com/gee220/Netcat-Scheduled-Listener.git)
+   cd Netcat-Scheduled-Listener
 
 
 
