@@ -6,76 +6,63 @@ This project demonstrates how to automate a Netcat listener using Bash scripting
 
 Instead of manually starting a listener every time, the system allows the user to:
 
-* Enter a port number
-* Set a delay time
-* Automatically schedule and run the listener
-
+Enter a port number
+Set a delay time
+Automatically schedule and run the listener
 This project combines Linux scripting, task automation, and networking concepts into one practical application.
 
-⸻
+
 
 Features
 
-* User input for port number and delay
-* Port validation (1–65535)
-* Automated Netcat listener
-* Scheduling using:
-    * at (delayed execution)
-    * cron (recurring execution)
-* Logging support
+User input for port number and delay
+Port validation (1–65535)
+Automated Netcat listener
+Scheduling using:
+at (delayed execution)
+cron (recurring execution)
+Logging support
 
-⸻
 
 Requirements
 
 Make sure you have the following installed:
 
-* Linux system (recommended: Kali Linux)
-* Bash shell
-* Netcat
-* cron service
-* at command
+Linux system (recommended: Kali Linux)
+Bash shell
+Netcat
+cron service
+at command
 
-⸻
 
 Installation
 
-1. Clone the repository:
+Clone the repository:
+git clone https://github.com/gee220/Netcat-Scheduled-Listener.git cd Netcat-Scheduled-Listener
 
-git clone https://github.com/gee220/Netcat-Scheduled-Listener.git
-cd Netcat-Scheduled-Listener
+Make scripts executable:
+chmod +x project.sh chmod +x listener.sh
 
-2. Make scripts executable:
+Install required tools (if not installed):
+sudo apt update sudo apt install netcat at cron
 
-chmod +x project.sh
-chmod +x listener.sh
+Start required services:
+sudo service cron start sudo service atd start
 
-3. Install required tools (if not installed):
 
-sudo apt update
-sudo apt install netcat at cron
-
-4. Start required services:
-
-sudo service cron start
-sudo service atd start
-
-⸻
 
 Configuration
 
-1. Update Script Paths
-
+Update Script Paths
 Make sure the path inside project.sh matches your system:
 
 echo "/home/kali/listener.sh $port" | at now + $delay minutes
 
 Replace /home/kali/ with your actual directory if needed.
 
-⸻
 
-2. (Optional) Configure Cron Job
 
+(Optional) Configure Cron Job
 To run the listener automatically at a specific time:
 
 crontab -e
@@ -86,12 +73,11 @@ Example:
 
 This means:
 
-* Runs every Sunday
-* At 10:00 AM
-* On port 4444
-* Saves output to a log file
+Runs every Sunday
+At 10:00 AM
+On port 4444
+Saves output to a log file
 
-⸻
 
 How to Run
 
@@ -101,80 +87,64 @@ Run the main script:
 
 You will be prompted to enter:
 
-* Port number
-* Delay (in minutes)
+Port number
+Delay (in minutes)
 
-⸻
 
 Usage Example
 
 Example Input:
 
-Enter port number: 4444
-Enter delay in minutes: 1
+Enter port number: 4444 Enter delay in minutes: 1
 
 What Happens:
 
-* Script validates the port
-* Schedules the listener
-* After 1 minute, Netcat starts automatically
-
+Script validates the port
+Schedules the listener
+After 1 minute, Netcat starts automatically
 Listener Output:
 
-Starting Netcat listener on port 4444...
-listening on [any] 4444 ...
+Starting Netcat listener on port 4444... listening on [any] 4444 ...
 
 Project Testing & Debugging
-1. Code Debugging
-The script syntax was fully checked and tested to ensure it is free of errors.
-• Result: 0 syntax errors. The code structure is clean and ready for execution.
-2. System Testing & Execution
-The execution testing was successfully verified inside the Linux (Kali) environment:
-• The script handles user input and port validation seamlessly.
-• Immediate scheduling was verified successfully using the at command.
-• Long-term periodic scheduling via crontab was successfully installed and active in the system.
 
+Code Debugging The script syntax was fully checked and tested to ensure it is free of errors. • Result: 0 syntax errors. The code structure is clean and ready for execution.
+System Testing & Execution The execution testing was successfully verified inside the Linux (Kali) environment: • The script handles user input and port validation seamlessly. • Immediate scheduling was verified successfully using the at command. • Long-term periodic scheduling via crontab was successfully installed and active in the system.
 Project Structure
 
-├── project.sh      # Main script (user input + scheduling)
-├── listener.sh     # Netcat listener script
-├── README.md       # Project documentation
+project.sh # Main script (user input + scheduling) listener.sh # Netcat listener script 
+README.md # Project documentation
 
-⸻
 
 How It Works
 
-1. User runs project.sh
-2. Script asks for:
-    * Port
-    * Delay
-3. Input is validated
-4. at schedules execution
-5. listener.sh runs Netcat:
+User runs project.sh
+Script asks for:
+Port
+Delay
+Input is validated
+at schedules execution
+listener.sh runs Netcat:
+nc -lvnp
 
-nc -lvnp <PORT>
 
-⸻
 
 Results
 
-* Listener successfully starts at scheduled time
-* Input validation prevents errors
-* Scheduling works using both at and cron
-* Logs are generated correctly
+Listener successfully starts at scheduled time
+Input validation prevents errors
+Scheduling works using both at and cron
+Logs are generated correctly
 
-⸻
 
 Conclusion
 
 This project demonstrates how Bash scripting can automate networking tasks using Netcat. It highlights the integration of:
 
-* Linux scripting
-* Task scheduling
-* Network communication tools
-
+Linux scripting
+Task scheduling
+Network communication tools
 It provides a strong foundation for understanding automation in cybersecurity and system administration.
-
 
 
 
