@@ -12,44 +12,34 @@ then
     read -p "Enter delay in minutes: " delay
 
     echo "Port selected: $port"
-    echo "Delay selected: $delay minute(s)"
+    echo "Delay selected: $delay minute(s)" 
 
     echo "Scheduling listener..."
 
-    echo "nc -lvnp $port" | at now + $delay minutes
+    echo "nc -lvnp $port" | tee -a listener_log.txt" | at now + $delay minutes
 
     echo "Done! Listener scheduled."
-else
-    echo "Invalid port number"
-fi
-
-# Part 2:
-PORT=$1
-
-# Ensure a port was passed as an argument
-if [ -z "$PORT" ]; then
-    echo "Error: No port provided to the listener script."
-    exit 1
-fi
-
-echo "[$(date)] Initializing Netcat listener on port $PORT..."
+    echo ""
+echo "=================================="
+echo " Netcat Listener Configuration"
+echo "=================================="
+echo "Port Number : $port"
+echo "Log File    : listener_log.txt"
+echo "Listener    : Scheduled Successfully"
+echo "=================================="
 
 # FUNCTIONALITY DETAILS:
 # -l: tells netcat to listen for a connection
 # -v: enables verbose mode so we can see when a connection is made
 # -n: prevents DNS lookups to keep the script fast and stable
 # -p: specifies the exact port number we are opening
-# -k:  keeps the listener open after a connection closes ( optional)
 
-nc -lvnp $PORT
-
-# Check if Netcat started successfully
-if [ $? -eq 0 ]; then
-    echo "[$(date)] Listener closed successfully."
+# Creates log file automatically
+touch listener_log.txt
 else
-    echo "[$(date)] Error: Failed to start Netcat on port $PORT."
-    exit 1
+    echo "Invalid port number"
 fi
+
 
 # Part 3: Crontab Command for Sunday 10:00 AM
 # 0 10 * * 0 /home/kali/project.sh 4444 >> /tmp/nc_sunday_listener.log 2>&1
