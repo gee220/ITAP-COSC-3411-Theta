@@ -76,7 +76,8 @@ Bash
 crontab -e
 #### Example Entry:
 
-Plaintext
+<img width="898" height="199" alt="PHOTO-2026-05-17-23-44-02" src="https://github.com/user-attachments/assets/b0bcf1fa-b839-43cf-a826-ee11e9e4c2cf" />
+
 0 10 * * 0 /home/kali/project.sh 4444 >> /tmp/nc_sunday_listener.log 2>&1
 Execution Breakdown:
 
@@ -86,7 +87,7 @@ Execution Breakdown:
 
 /home/kali/project.sh 4444: Executes the script pointing to port 4444.
 
->> /tmp/...: Redirects both standard output and error outputs to a persistent log file.
+
 
 ## How to Run & Usage Example
 ### 1. Running the Main Script
