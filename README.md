@@ -173,11 +173,6 @@ This project demonstrates how Bash scripting can automate networking tasks using
 
 It provides a strong foundation for understanding automation in cybersecurity and system administration.
 
-<img width="1174" height="836" alt="Screenshot 2026-05-16 at 6 48 26 pm" src="https://github.com/user-attachments/assets/ea3139a8-935e-48b4-90f3-a80428c34aac" />
-
-
-
-<img width="968" height="489" alt="Screenshot 2026-05-16 at 6 50 06 pm" src="https://github.com/user-attachments/assets/8484dea3-269c-4e3b-bfed-7018d5aef200" />
 
 
 
