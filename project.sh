@@ -18,7 +18,7 @@ then
     echo "Scheduling listener..."
 
     # Call this same script with the port as an argument after the delay
-    echo "/home/kali/project.sh $port" | at now + $delay minutes
+    echo "/home/kali/listener.sh $port" | at now + $delay minutes
 
     echo "Done! Listener scheduled."
 
@@ -27,21 +27,5 @@ else
 fi
 
 
-# --- Part 3: (Netcat Listener Execution) ---
-PORT=$1
-
-# Check if the script was triggered with a port argument
-if [ -n "$PORT" ]; then
-    echo "[$(date)] Initializing Netcat listener on port $PORT..."
-    
-    # Executing the Netcat listener
-    nc -lvnp $PORT
-
-    # Checking if Netcat closed successfully or failed
-    if [ $? -eq 0 ]; then
-        echo "[$(date)] Listener closed successfully."
-    else
-        echo "[$(date)] Error: Failed to start Netcat on port $PORT."
-        exit 1
-    fi
-fi
+# Part 3: Crontab Command for Sunday 10:00 AM
+# 0 10 * * 0 /home/kali/project.sh 4444 >> /tmp/nc_sunday_listener.log 2>&1
