@@ -154,7 +154,7 @@ This project demonstrates how Bash scripting can automate networking tasks using
 * **Task Scheduling**
 * **Network Communication Tools**
 
-It provides a strong foundation for understanding automation in cybersecurity and system administration.
+
 
 
 
