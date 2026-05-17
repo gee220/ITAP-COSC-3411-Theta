@@ -109,15 +109,15 @@ Enter delay in minutes: 1
 Starting Netcat listener on port 4444...
 listening on [any] 4444 ...
 
-# **Project Testing & Debugging**
+## **Project Testing & Debugging**
 
-## **1. Code Debugging**
+### **1. Code Debugging**
 The script syntax was fully checked and tested to ensure it is free of errors.
 * **Result:** 0 syntax errors. The code structure is clean and ready for execution.
 
 ---
 
-## **2. System Testing & Execution**
+### **2. System Testing & Execution**
 The execution testing was successfully verified inside the Linux (Kali) environment:
 * The script handles user input and port validation seamlessly.
 * Immediate scheduling was verified successfully using the `at` command.
@@ -130,6 +130,7 @@ The execution testing was successfully verified inside the Linux (Kali) environm
 ├── project.sh      # Main script (user input + scheduling)
 ├── listener.sh     # Netcat listener script
 └── README.md       # Project documentation
+
 
 ## **How It Works**
 1. User runs `project.sh`
