@@ -1,10 +1,11 @@
 #!/bin/bash
-                                                                  
+
+# --- Part 1:(User Input & Scheduling) ---
 echo "Scheduled Listener using Netcat"
 
 read -p "Enter port number: " port
 
-#port validation
+# Port validation
 if [ $port -ge 1 ] && [ $port -le 65535 ]
 then
     echo "Valid port number"
@@ -16,40 +17,31 @@ then
 
     echo "Scheduling listener..."
 
-    echo "nc -lvnp $port" | at now + $delay minutes
+    # Call this same script with the port as an argument after the delay
+    echo "/home/kali/project.sh $port" | at now + $delay minutes
 
     echo "Done! Listener scheduled."
+
 else
     echo "Invalid port number"
 fi
 
-# Part 2:
+
+# --- Part 3: (Netcat Listener Execution) ---
 PORT=$1
 
-# Ensure a port was passed as an argument
-if [ -z "$PORT" ]; then
-    echo "Error: No port provided to the listener script."
-    exit 1
+# Check if the script was triggered with a port argument
+if [ -n "$PORT" ]; then
+    echo "[$(date)] Initializing Netcat listener on port $PORT..."
+    
+    # Executing the Netcat listener
+    nc -lvnp $PORT
+
+    # Checking if Netcat closed successfully or failed
+    if [ $? -eq 0 ]; then
+        echo "[$(date)] Listener closed successfully."
+    else
+        echo "[$(date)] Error: Failed to start Netcat on port $PORT."
+        exit 1
+    fi
 fi
-
-echo "[$(date)] Initializing Netcat listener on port $PORT..."
-
-# FUNCTIONALITY DETAILS:
-# -l: tells netcat to listen for a connection
-# -v: enables verbose mode so we can see when a connection is made
-# -n: prevents DNS lookups to keep the script fast and stable
-# -p: specifies the exact port number we are opening
-# -k:  keeps the listener open after a connection closes ( optional)
-
-nc -lvnp $PORT
-
-# Check if Netcat started successfully
-if [ $? -eq 0 ]; then
-    echo "[$(date)] Listener closed successfully."
-else
-    echo "[$(date)] Error: Failed to start Netcat on port $PORT."
-    exit 1
-fi
-
-# Part 3: Crontab Command for Sunday 10:00 AM
-# 0 10 * * 0 /home/kali/project.sh 4444 >> /tmp/nc_sunday_listener.log 2>&1
