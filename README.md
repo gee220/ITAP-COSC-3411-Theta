@@ -47,7 +47,8 @@ Bash git clone https://github.com/gee220/Netcat-Scheduled-Listener.git
 ### 2. Make Scripts Executable
 
 Bash
-chmod +x project.sh /n
+chmod +x project.sh 
+
 chmod +x listener.sh
 ### 3. Install Required Tools (If missing)
 
