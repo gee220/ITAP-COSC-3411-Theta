@@ -43,10 +43,7 @@ at automation utility
 ## Installation & Setup
 ### 1. Clone the Repository
 
-```bash
-git clone https://github.com/gee220/Netcat-Scheduled-Listener.git
-cd Netcat-Scheduled-Listener
-```
+Bash git clone https://github.com/gee220/Netcat-Scheduled-Listener.git
 ### 2. Make Scripts Executable
 
 Bash
