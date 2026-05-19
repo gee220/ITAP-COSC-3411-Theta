@@ -2,9 +2,18 @@
 
 PORT=$1
 
-echo "Starting Netcat listener on port $PORT..."
+echo "==================================="
+echo " Netcat Listener Started "
+echo "==================================="
 
-# Netcat listener
+echo "Date: $(date)"
+echo "Listening on port: $PORT"
+echo "Waiting for incoming connection..."
+echo ""
+
+# Start Netcat listener
 nc -lvnp $PORT
 
-echo "Listener closed."
+echo ""
+echo "Listener stopped."
+echo "Closing program..."
