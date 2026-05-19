@@ -1,4 +1,3 @@
-<img width="458" height="231" alt="Screenshot 2026-05-19 at 9 19 03 pm" src="https://github.com/user-attachments/assets/5d0c938f-311e-48e8-8c5c-733094254367" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
